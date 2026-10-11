@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voiceguard-baseline"
+version = "0.1.0"
+description = "A small, transparent real-time audio anti-spoofing baseline."
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+license = {text = "MIT"}
+authors = [{name = "VoiceGuard contributors"}]
+dependencies = [
+  "numpy>=1.26,<3",
+  "librosa>=0.10,<1",
+  "scikit-learn>=1.4,<2",
+  "sounddevice>=0.4,<1",
+  "joblib>=1.3,<2",
+  "webrtcvad-wheels>=2.0.14,<3",
+]
+
+[project.scripts]
+voiceguard-train = "train_baseline:main"
+voiceguard-listen = "realtime_detector:main"
+
+[tool.setuptools]
+py-modules = ["voice_features", "train_baseline", "realtime_detector"]
